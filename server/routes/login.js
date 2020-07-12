@@ -31,7 +31,9 @@ loginRoute.get('/', (req, res) => {
                 })
             }
             if (result) {
-                return res.json({status: 'ok'});
+                return res.json({
+                    status: 'ok',
+                });
             }
             return res.json({
                 status: 'error',
