@@ -29,8 +29,8 @@ tasksRoute.post('/', (req, res) => {
     )
 })
 
-tasksRoute.get('/', (req, res) => {
-    db.query('SELECT * FROM TASKS WHERE ID = ?', [req.body.id], (err, results, fields) => {
+tasksRoute.get('/:id', (req, res) => {
+    db.query('SELECT * FROM TASKS WHERE ID = ?', [req.params.id], (err, results, fields) => {
         if (err) {
             return res.json({
                 status: 'error',
