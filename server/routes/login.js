@@ -6,24 +6,22 @@ const db = require('../dbConnection.js');
 
 const saltRounds = 10;
 
-loginRoute.get('/', (req, res) => {
-    if (!req.body.password || !req.body.userid) {
+loginRoute.get('/:userid/:password', (req, res) => {
+    if (!req.params.password || !req.params.userid) {
         return res.json({
-            status: 'error',
             error: 'invalid credentials'
         });
     }
 
-    db.query('SELECT * FROM USER_LOGIN WHERE USER_ID = ?;', [req.body.userid], (error, results, fields) => {
+    db.query('SELECT * FROM USER_LOGIN WHERE USER_ID = ?;', [req.params.userid], (error, results, fields) => {
         if (error) {
             return res.json({
-                status: 'error',
                 error: error
             });
         }
         const hash = results[0]['PASSWORD']
 
-        bcrypt.compare(req.body.password, hash, function(err, result) {
+        bcrypt.compare(req.params.password, hash, function(err, result) {
             if(err) {
                 return res.json({
                     status: "error",
