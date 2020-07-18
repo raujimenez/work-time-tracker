@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import { Button, Form, Input, Row, Col, Layout, Typography } from "antd";
 
-import sendSignup from "../handlers/sendSignup.js";
+import sendSignup from "../../handlers/sendSignup.js";
 
 const Signup = () => {
   const [username, setUsername] = useState("");

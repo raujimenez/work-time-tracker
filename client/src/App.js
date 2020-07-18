@@ -4,8 +4,8 @@ import "./App.css";
 import { Layout } from "antd";
 
 import TopBar from "./components/TopBar";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Signup from "./components/userCreation/Signup";
+import Login from "./components/userCreation/Login";
 import Dashboard from "./components/Dashboard";
 import CreateTask from "./components/tasks/CreateTask";
 import CreateTaskDevelopment from "./components/tasks/CreateTaskDevelopment";

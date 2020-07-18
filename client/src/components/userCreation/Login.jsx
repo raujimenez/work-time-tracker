@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Form, Button, Input, Layout, Typography, Row, Col } from "antd";
 
-import handleLogin from "../handlers/handleLogin";
+import handleLogin from "../../handlers/handleLogin";
 
 const Login = (props) => {
   const history = useHistory();
