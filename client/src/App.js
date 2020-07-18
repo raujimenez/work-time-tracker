@@ -6,6 +6,7 @@ import { Layout } from "antd";
 import TopBar from "./components/TopBar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route path="/login" exact>
               <Login />
+            </Route>
+            <Route path="/dashboard" exact>
+              <Dashboard />
             </Route>
           </Switch>
         </Router>

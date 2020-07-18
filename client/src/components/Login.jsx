@@ -32,7 +32,7 @@ const Login = (props) => {
                 <Input
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  autoFocus
+                  autoFocus 
                 />
               </Form.Item>
               <Form.Item
