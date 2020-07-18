@@ -7,14 +7,15 @@ import TopBar from "./components/TopBar";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import CreateTask from "./components/tasks/CreateTask";
+import CreateTaskDevelopment from "./components/tasks/CreateTaskDevelopment";
 
 function App() {
   return (
     <div className="App">
       <Layout style={{ height: "100vh" }}>
+      <Router>
         <TopBar />
-
-        <Router>
           <Switch>
             <Route path="/signup" exact>
               <Signup />
@@ -24,6 +25,12 @@ function App() {
             </Route>
             <Route path="/dashboard" exact>
               <Dashboard />
+            </Route>
+            <Route path="/create-task" exact>
+              <CreateTask />
+            </Route>
+            <Route path="/create-task/development" exact>
+              <CreateTaskDevelopment /> 
             </Route>
           </Switch>
         </Router>

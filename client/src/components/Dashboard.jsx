@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Layout, Card, Row, Col, Typography } from "antd";
 import { ReactComponent as TimeManagement } from "../svg/TimeManagement.svg";
 import { ReactComponent as CreateTasks } from "../svg/CreateTasks.svg";
@@ -28,11 +29,13 @@ const Dashboard = (params) => {
           xs={{ span: "24" }}
           lg={{ span: "7" }}
         >
-          <Card hoverable style={imageStyles} cover={<CreateTasks />}>
-            <Typography.Title style={{ textAlign: "center" }}>
-              Create Tasks
-            </Typography.Title>
-          </Card>
+          <Link to="/create-task">
+            <Card hoverable style={imageStyles} cover={<CreateTasks />}>
+              <Typography.Title style={{ textAlign: "center" }}>
+                Create Tasks
+              </Typography.Title>
+            </Card>
+          </Link>
         </Col>
         <Col
           style={{ marginTop: "2vh" }}
