@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import { Button, Form, Input, Row, Col, Layout, Typography } from "antd";
 
+import { ReactComponent as CreateAccountSvg } from "../../svg/CreateAccount.svg";
 import sendSignup from "../../handlers/sendSignup.js";
 
 const Signup = () => {
@@ -18,6 +19,11 @@ const Signup = () => {
       <Row style={{ marginTop: "2vh" }}>
         <Col span="24" style={{ textAlign: "center" }}>
           <Typography.Title>Create Your Account</Typography.Title>
+        </Col>
+      </Row>
+      <Row justify="center">
+        <Col style={{textAlign: 'center'}}>
+          <CreateAccountSvg />
           <Typography.Paragraph level={2}>
             Your privacy is important.
           </Typography.Paragraph>
@@ -95,7 +101,7 @@ const Signup = () => {
                   <Button
                     type="primary"
                     onClick={async () => {
-                      if(
+                      if (
                         await sendSignup(
                           username,
                           password,
@@ -104,10 +110,9 @@ const Signup = () => {
                           email
                         )
                       ) {
-                        history.push('/login');
+                        history.push("/login");
                       }
-                    }
-                    }
+                    }}
                   >
                     Create Account
                   </Button>
