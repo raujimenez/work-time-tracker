@@ -11,7 +11,12 @@ const imageStyles = {
 
 const Dashboard = (params) => {
   return (
-    <Layout.Content>
+    <Layout.Content style={{marginTop: '20px'}}>
+      <Row justify="center">
+        <Col>
+          <Typography.Title>Welcome back, {"hasn't been coded yet"}</Typography.Title>
+        </Col>
+      </Row>
       <Row justify="space-around">
         <Col
           style={{ marginTop: "2vh" }}

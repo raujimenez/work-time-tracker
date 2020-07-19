@@ -24,7 +24,7 @@ const Login = (props) => {
       </Row>
       <Row justify="center">
         <Col xs={{ span: "24" }} lg={{ span: "12" }}>
-          <Layout.Content style={{ padding: "25px" }}>
+          <Layout.Content style={{ marginTop: "15px" }}>
             <Form
               labelCol={{ span: 3 }}
               colon={false}

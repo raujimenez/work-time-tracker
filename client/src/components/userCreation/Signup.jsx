@@ -15,8 +15,8 @@ const Signup = () => {
   const history = useHistory();
 
   return (
-    <React.Fragment>
-      <Row style={{ marginTop: "2vh" }}>
+    <Layout.Content>
+      <Row>
         <Col span="24" style={{ textAlign: "center" }}>
           <Typography.Title>Create Your Account</Typography.Title>
         </Col>
@@ -34,11 +34,9 @@ const Signup = () => {
       </Row>
       <Row justify="center">
         <Col xs={{ span: "24" }} lg={{ span: "12" }}>
-          <Layout.Content style={{ padding: "25px" }}>
             <Form
               labelCol={{ span: 3 }}
               colon={false}
-              style={{ paddingRight: "1%" }}
             >
               <Form.Item
                 label="Username"
@@ -119,10 +117,9 @@ const Signup = () => {
                 </Col>
               </Row>
             </Form>
-          </Layout.Content>
         </Col>
       </Row>
-    </React.Fragment>
+      </Layout.Content>
   );
 };
 

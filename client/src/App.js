@@ -13,7 +13,7 @@ import CreateTaskDevelopment from "./components/tasks/CreateTaskDevelopment";
 function App() {
   return (
     <div className="App">
-      <Layout style={{ height: "100vh" }}>
+      <Layout style={{ minHeight: "100vh" }}>
       <Router>
         <TopBar />
           <Switch>
