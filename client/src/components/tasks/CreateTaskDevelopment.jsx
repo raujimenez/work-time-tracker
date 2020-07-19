@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CreateTask from "./CreateTask";
 import moment from "moment";
 
@@ -22,14 +22,16 @@ import { ReactComponent as DevelopmentCreateTask } from "../../svg/DevelopmentCr
 const CreateTaskDevelopment = (props) => {
   const history = useHistory();
 
-  if (localStorage.getItem('loggedin') !== 'true') {
-    history.push('/login');
+  if (localStorage.getItem("loggedin") !== "true") {
+    history.push("/login");
   }
 
   const [isJiraTicket, setIsJiraTicket] = useState(true);
   const [jiraTicketId, setJiraTicketId] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [prsubmitted, setPrsubmitted] = useState(false);
+  const [prreviewed, setPrreviewed] = useState(false);
   const [startTime, setStartTime] = useState(moment());
   return (
     <Layout.Content style={{ padding: "25px" }}>
@@ -85,6 +87,38 @@ const CreateTaskDevelopment = (props) => {
               >
                 Jira Item
               </Checkbox>
+              <Checkbox
+                style={{
+                  display: !isJiraTicket ? "none" : "",
+                  marginLeft: "20px",
+                }}
+                checked={prsubmitted}
+                value={prsubmitted}
+                onChange={(e) => {
+                  if(!prsubmitted) {
+                    setPrreviewed(false);
+                  }
+                  setPrsubmitted(!prsubmitted);
+                }}
+              >
+                PR submitted
+              </Checkbox>
+              <Checkbox
+                style={{
+                  display: !isJiraTicket ? "none" : "",
+                  marginLeft: "20px",
+                }}
+                checked={prreviewed}
+                value={prreviewed}
+                onChange={(e) => {
+                  if(!prreviewed) {
+                    setPrsubmitted(false);
+                  }
+                  setPrreviewed(!prreviewed);
+                }}
+              >
+                PR reviewed
+              </Checkbox>
             </Form.Item>
             <Form.Item label="Task Title">
               <Row>
@@ -125,20 +159,29 @@ const CreateTaskDevelopment = (props) => {
             </Form.Item>
             <Form.Item>
               <Row justify="end">
-                <Col xs={{span: 16}} lg={{span: 5}}>
+                <Col xs={{ span: 16 }} lg={{ span: 5 }}>
                   <Link to="/create-task">
                     <Button type="default">Back to Create Task</Button>
                   </Link>
                 </Col>
-                <Col xs={{span: 8}} lg={{span: 5}}>
-                  <Button type="primary" onClick={async () => {
-                    sendDevTask(
-                      (isJiraTicket) ? jiraTicketId.concat([': '+title]).substr(0, 100) : title.substr(0, 100),
-                      description,
-                      startTime,
-                      localStorage.getItem('userid')
-                    )
-                  }}>Create Task</Button>
+                <Col xs={{ span: 8 }} lg={{ span: 5 }}>
+                  <Button
+                    type="primary"
+                    onClick={async () => {
+                      await sendDevTask(
+                        isJiraTicket
+                          ? jiraTicketId.concat([": " + title]).substr(0, 100)
+                          : title.substr(0, 100),
+                        description,
+                        startTime,
+                        prsubmitted,
+                        prreviewed,
+                        localStorage.getItem("userid")
+                      );
+                    }}
+                  >
+                    Create Task
+                  </Button>
                 </Col>
               </Row>
             </Form.Item>
