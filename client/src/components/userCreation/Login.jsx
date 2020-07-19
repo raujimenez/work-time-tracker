@@ -9,7 +9,11 @@ const Login = (props) => {
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  
+  if(localStorage.getItem('loggedin') === 'true') {
+    history.push("/dashboard");
+  }
+  
   return (
     <React.Fragment>
       <Row style={{ marginTop: "2vh" }}>

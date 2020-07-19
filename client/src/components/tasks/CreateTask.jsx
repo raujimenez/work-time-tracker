@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { Row, Col, Layout, Input, Card, Typography } from "antd";
 
@@ -12,6 +12,12 @@ const imageStyles = {
 };
 
 const CreateTask = (props) => {
+  const history = useHistory();
+
+  if(localStorage.getItem('loggedin') !== 'true') {
+    history.push('/login');
+  }
+
   return (
     <Layout.Content>
       <Row justify="space-around">
@@ -25,6 +31,17 @@ const CreateTask = (props) => {
           xs={{ span: "24" }}
           lg={{ span: "7" }}
         >
+          <Card hoverable style={imageStyles} cover={<Meeting />}>
+            <Typography.Title style={{ textAlign: "center" }}>
+              In a Meeting
+            </Typography.Title>
+          </Card>
+        </Col>
+        <Col
+          style={{ marginTop: "2vh" }}
+          xs={{ span: "24" }}
+          lg={{ span: "7" }}
+        >
           <Link to="/create-task/development">
             <Card hoverable style={imageStyles} cover={<DeveloperActivity />}>
               <Typography.Title style={{ textAlign: "center" }}>
@@ -32,17 +49,6 @@ const CreateTask = (props) => {
               </Typography.Title>
             </Card>
           </Link>
-        </Col>
-        <Col
-          style={{ marginTop: "2vh" }}
-          xs={{ span: "24" }}
-          lg={{ span: "7" }}
-        >
-          <Card hoverable style={imageStyles} cover={<Meeting />}>
-            <Typography.Title style={{ textAlign: "center" }}>
-              In a Meeting
-            </Typography.Title>
-          </Card>
         </Col>
         <Col
           style={{ marginTop: "2vh" }}

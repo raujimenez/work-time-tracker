@@ -14,6 +14,10 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const history = useHistory();
 
+  if(localStorage.getItem('loggedin') === 'true') {
+    history.push("/dashboard");
+  }
+
   return (
     <Layout.Content>
       <Row>

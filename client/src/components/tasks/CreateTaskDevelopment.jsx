@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory} from "react-router-dom";
 import CreateTask from "./CreateTask";
 import moment from "moment";
 
@@ -15,14 +15,17 @@ import {
   TimePicker,
   Button,
 } from "antd";
+
+import sendDevTask from "../../handlers/sendDevTask";
 import { ReactComponent as DevelopmentCreateTask } from "../../svg/DevelopmentCreateTask.svg";
 
-const handleCreateTask = async (e) => {
-  // POST to /tasks
-  // retrieve created task_id and POST to /userTask
-}
-
 const CreateTaskDevelopment = (props) => {
+  const history = useHistory();
+
+  if (localStorage.getItem('loggedin') !== 'true') {
+    history.push('/login');
+  }
+
   const [isJiraTicket, setIsJiraTicket] = useState(true);
   const [jiraTicketId, setJiraTicketId] = useState("");
   const [title, setTitle] = useState("");
@@ -128,7 +131,14 @@ const CreateTaskDevelopment = (props) => {
                   </Link>
                 </Col>
                 <Col xs={{span: 8}} lg={{span: 5}}>
-                  <Button type="primary" onClick={handleCreateTask}>Create Task</Button>
+                  <Button type="primary" onClick={async () => {
+                    sendDevTask(
+                      (isJiraTicket) ? jiraTicketId.concat([': '+title]).substr(0, 100) : title.substr(0, 100),
+                      description,
+                      startTime,
+                      localStorage.getItem('userid')
+                    )
+                  }}>Create Task</Button>
                 </Col>
               </Row>
             </Form.Item>

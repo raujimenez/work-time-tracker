@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Layout, Card, Row, Col, Typography } from "antd";
 import { ReactComponent as TimeManagement } from "../svg/TimeManagement.svg";
 import { ReactComponent as CreateTasks } from "../svg/CreateTasks.svg";
@@ -10,11 +10,16 @@ const imageStyles = {
 };
 
 const Dashboard = (params) => {
+  const history = useHistory();
+  if(localStorage.getItem('loggedin') !== 'true'){
+    history.push('/login')
+  }
+
   return (
     <Layout.Content style={{marginTop: '20px'}}>
       <Row justify="center">
         <Col>
-          <Typography.Title>Welcome back, {"hasn't been coded yet"}</Typography.Title>
+          <Typography.Title>Welcome back, {localStorage.getItem("username")}</Typography.Title>
         </Col>
       </Row>
       <Row justify="space-around">
