@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { Form, Button, Input, Layout, Typography, Row, Col } from "antd";
 
+import { ReactComponent as LoginSvg} from '../../svg/Login.svg'
 import handleLogin from "../../handlers/handleLogin";
 
 const Login = (props) => {
@@ -14,6 +15,11 @@ const Login = (props) => {
       <Row style={{ marginTop: "2vh" }}>
         <Col span="24" style={{ textAlign: "center" }}>
           <Typography.Title>Login into your Account</Typography.Title>
+        </Col>
+      </Row>
+      <Row justify="center">
+        <Col>
+          <LoginSvg />
         </Col>
       </Row>
       <Row justify="center">
