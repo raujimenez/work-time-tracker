@@ -122,12 +122,12 @@ const CreateTaskDevelopment = (props) => {
             </Form.Item>
             <Form.Item>
               <Row justify="end">
-                <Col span="6">
+                <Col xs={{span: 16}} lg={{span: 5}}>
                   <Link to="/create-task">
                     <Button type="default">Back to Create Task</Button>
                   </Link>
                 </Col>
-                <Col span="3">
+                <Col xs={{span: 8}} lg={{span: 5}}>
                   <Button type="primary" onClick={handleCreateTask}>Create Task</Button>
                 </Col>
               </Row>
