@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
-import { Row, Col, Layout, Input, Card, Typography } from "antd";
+import { Row, Col, Layout, Input, Card, Typography, Button } from "antd";
 
 import { ReactComponent as DeveloperActivity } from "../../svg/DeveloperActivity.svg";
 import { ReactComponent as Meeting } from "../../svg/Meeting.svg";
@@ -60,6 +60,12 @@ const CreateTask = (props) => {
               Something else
             </Typography.Title>
           </Card>
+        </Col>
+      </Row>
+
+      <Row justify="space-around">
+        <Col>
+          <Button onClick={() => history.push('/dashboard')}>Back</Button>
         </Col>
       </Row>
     </Layout.Content>
