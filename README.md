@@ -1,4 +1,5 @@
 # work-time-tracker
+**This projected is abandoned due bad software development practices, feel free to fix my mistakes lol**
 Time tracking JIRA tickets is time consuming. This solution eliminates need to create excel documents to keep track of time.\
 I use this to help me automate my End of Day status messages while I am interning.\
 **Disclaimer:** This solution is in no way associated with the company, other than my cheapness to not purchase an existing subscription to a solution.
