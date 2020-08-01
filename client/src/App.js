@@ -9,6 +9,7 @@ import Login from "./components/userCreation/Login";
 import Dashboard from "./components/Dashboard";
 import CreateTask from "./components/tasks/CreateTask";
 import CreateTaskDevelopment from "./components/tasks/CreateTaskDevelopment";
+import ManageTask from "./components/tasks/ManageTask";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path="/create-task/development" exact>
               <CreateTaskDevelopment /> 
+            </Route>
+            <Route path="/manage-task" exact>
+              <ManageTask />
             </Route>
           </Switch>
         </Router>

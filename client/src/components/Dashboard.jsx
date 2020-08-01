@@ -28,11 +28,13 @@ const Dashboard = (params) => {
           xs={{ span: "24" }}
           lg={{ span: "7" }}
         >
-          <Card hoverable style={imageStyles} cover={<TimeManagement />}>
-            <Typography.Title style={{ textAlign: "center" }}>
-              Manage Tasks
-            </Typography.Title>
-          </Card>
+          <Link to="/manage-task">
+            <Card hoverable style={imageStyles} cover={<TimeManagement />}>
+              <Typography.Title style={{ textAlign: "center" }}>
+                Manage Tasks
+              </Typography.Title>
+            </Card>
+          </Link>
         </Col>
         <Col
           style={{ marginTop: "2vh" }}
